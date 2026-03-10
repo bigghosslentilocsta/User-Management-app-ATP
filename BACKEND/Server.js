@@ -21,7 +21,14 @@ app.use(express.json());
 app.use('/user-api', userApp);
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URL)
+const mongoUrl = process.env.MONGODB_URL || process.env.MONGO_URI;
+
+if (!mongoUrl) {
+  console.error('Missing MongoDB connection string. Set MONGODB_URL (or MONGO_URI) in environment variables.');
+  process.exit(1);
+}
+
+mongoose.connect(mongoUrl)
     .then(() => {
         console.log('Connected to MongoDB');
         // Start server after DB connection
