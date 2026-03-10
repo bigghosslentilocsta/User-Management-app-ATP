@@ -1,0 +1,36 @@
+### Create user
+POST http://localhost:5000/user-api/users
+Content-Type: application/json
+
+{
+    "name": "Pavan kumar",
+    "email": "pavan1@example.com",
+    "dob": "11-12-2005",
+    "mobileNumber": 9876543210
+}
+
+###
+POST http://localhost:5000/user-api/users
+Content-Type: application/json
+
+{
+    "name": "lenti",
+    "email": "lenti@example.com",
+    "dob": "11-12-2005",
+    "mobileNumber": 9123456789
+}
+
+
+### Get all users
+GET http://localhost:5000/user-api/users
+Content-Type: application/json
+
+### Get user by ID 
+GET http://localhost:5000/user-api/users/69a682d42483a26203f6de23
+Content-Type: application/json
+
+### SOFT Delete user by ID 
+delete http://localhost:5000/user-api/users/69a682d42483a26203f6de23
+
+### activate the user by id
+patch http://localhost:5000/user-api/users/69a682d42483a26203f6de23
